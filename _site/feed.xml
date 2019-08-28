@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-08-28T09:27:11+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Generic Programer</title><subtitle>I am a software engineer with 6+ years experience in industry. Passionate about clean pragmatic code ensuring the highest standards, as well as agile methodoligies and awesome tech!</subtitle><entry><title type="html">Oauth 2.0</title><link href="http://localhost:4000/security/oauth2.0/ramblings/2019/08/28/Oauth2.html" rel="alternate" type="text/html" title="Oauth 2.0" /><published>2019-08-28T08:18:36+01:00</published><updated>2019-08-28T08:18:36+01:00</updated><id>http://localhost:4000/security/oauth2.0/ramblings/2019/08/28/Oauth2</id><content type="html" xml:base="http://localhost:4000/security/oauth2.0/ramblings/2019/08/28/Oauth2.html">&lt;p&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Oauth2.0 is a maze and quagmire when you first look at it. In this post I will attempt to explain it from an abstract standpoint.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What problem does Oauth2.0 set out to solve?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Oauth aims to provide a way to authourize someone to access something on your behalf. People say Oauth2.0 is an Authorization not an Authentication protocol. What does that even mean?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Hotel&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets try and put it into context:&lt;/p&gt;
+
+&lt;p&gt;You are at a hotel you are staying in suite room 112 you have two locks for your room one for the front door and one for the main bedroom. You are given a single key to access both rooms.&lt;/p&gt;
+
+&lt;p&gt;In this analogy you are what is termed the resource owner as you own the conents all of your belongings that you have put in the room. You have the resource server, and this is room itself as it contains all of your belongings that you brought on holiday with you. Then there is the authorization server (the hotel desk the one that gave you your key and also the person who put the locks on the door).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Buttler&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We are now going to add a new person into this scenario, your personal buttler. (client application) You want to give access to your main suite but not you bedroom. Everytime he wants access you don’t want to have to personally escort him around and into your room. So you go down to the hotel desk with your master key and tell the person at the hotel desk hey can you give this guy next to me, my buttler a key that only opens the main suite door but not the bedroom (scopes). After the buttler has got the key he can come and go as he pleases and drop off your grocerries, laundered clothes etc in your room.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Rougue Buttler&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;And this is what Oauth2.0 is about it is an Authroization protocol. So why is it not an authentication protocol? Because in this case you authenticated yourself and got the authorization server to provide a key that the buttler can use to go into your suite but not your bedroom.&lt;/p&gt;
+
+&lt;p&gt;Lets say for example your buttler was a little bit rouge, and he decided hey I am going to contract out a load of buttlers who will do my job for me and then give them my key to the room. The room will open the door to whoever holds that key, it doesn’t tell us who holds that key, and did we really give them that specific key? It also doesn’t give any limits to how many times or long the buttler is in that room. For example he could let in a load of his friends to have a party while you are out.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Securing the room further&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;So how do we make this better? It comes down to a degree of trust, the hotel desk is going to install a secondry lock on the door which they can control from the front desk along with a cctv camera. Most of the time this secondry lock will be open (trust) but in cetain circumstances they will make the secondry lock shut. When the buttler wants to go in when this secondry lock is activated the hotel desk will phone you up, get you to confirm that the cctv footage is showing someone you authorized and if you are happy then the desk will open the door on your behalf. This process is 2FA. For cases where the data is more sensitive or the action is more pertinent then 2FA should be required.&lt;/p&gt;
+
+&lt;p&gt;Oauth2.0 is also just a protocol it does not even specify that you have to use keys. They could be biometric scanners, passcodes one time emails etc. It is a way of you giving access to certain parts of your room on your behalf. This is the authentication part, enuring that you are the person who can allow the buttler to have key.&lt;/p&gt;</content><author><name></name></author><summary type="html">Introduction</summary></entry></feed>
