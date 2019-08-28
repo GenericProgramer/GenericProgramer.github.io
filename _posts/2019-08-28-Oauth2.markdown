@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Oauth 2.0"
+title:  "What is Oauth 2.0? (With an anology)"
 date:   2019-08-28 08:18:36 +0100
 categories: security oauth2.0 ramblings
 ---
