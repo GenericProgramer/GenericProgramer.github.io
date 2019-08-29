@@ -7,34 +7,28 @@ categories: security oauth2.0 ramblings
 
 **Introduction**
 
-Oauth2.0 is a maze and quagmire when you first look at it. In this post I will attempt to explain it from an abstract standpoint.
-
-**What problem does Oauth2.0 set out to solve?**
-
-Oauth aims to provide a way to authourize someone to access something on your behalf. People say Oauth2.0 is an Authorization not an Authentication protocol. What does that even mean? 
-
+OAuth2.0 is a maze and quagmire when you first look at it. In this post, I will attempt to explain it from an abstract standpoint.
+What problem does OAuth2.0 set out to solve?
+OAuth aims to provide a way to authorize someone to access something on your behalf. People say OAuth2.0 is an Authorization, not an Authentication protocol. What does that even mean?
 
 **The Hotel**
 
-Lets try and put it into context:
-
+Let's try and put it into context:
 You are at a hotel you are staying in suite room 112 you have two locks for your room one for the front door and one for the main bedroom. You are given a single key to access both rooms.
+In this analogy, you are what is termed the resource owner as you own the contents all of your belongings that you have put in the room. You have the resource server, and this is room itself as it contains all of the belongings that you brought on holiday with you. Then there is the authorization server (the hotel desk the one that gave you your key and also the person who put the locks on the door).
 
-In this analogy you are what is termed the resource owner as you own the conents all of your belongings that you have put in the room. You have the resource server, and this is room itself as it contains all of your belongings that you brought on holiday with you. Then there is the authorization server (the hotel desk the one that gave you your key and also the person who put the locks on the door). 
+**The Butler**
 
-**The Buttler**
+We are now going to add a new person into this scenario, your butler. (client application) You want to give access to your main suite but not your bedroom. Every time he wants to access you don’t want to have to personally escort him around and into your room. So you go down to the hotel desk with your master key and tell the person at the hotel desk hey can you give this guy next to me, my butler a key that only opens the main suite door but not the bedroom (scopes). After the butler has got the key he can come and go as he pleases and drop off your groceries, laundered clothes etc in your room.
 
-We are now going to add a new person into this scenario, your personal buttler. (client application) You want to give access to your main suite but not you bedroom. Everytime he wants access you don't want to have to personally escort him around and into your room. So you go down to the hotel desk with your master key and tell the person at the hotel desk hey can you give this guy next to me, my buttler a key that only opens the main suite door but not the bedroom (scopes). After the buttler has got the key he can come and go as he pleases and drop off your grocerries, laundered clothes etc in your room.
+**The Rogue Butler**
 
+And this is what OAuth2.0 is about it is an Authorization protocol. So why is it not an authentication protocol? Because in this case you authenticated yourself and got the authorization server to provide a key that the butler can use to go into your suite but not your bedroom.
 
-**The Rougue Buttler**
-
-And this is what Oauth2.0 is about it is an Authroization protocol. So why is it not an authentication protocol? Because in this case you authenticated yourself and got the authorization server to provide a key that the buttler can use to go into your suite but not your bedroom.
-
-Lets say for example your buttler was a little bit rouge, and he decided hey I am going to contract out a load of buttlers who will do my job for me and then give them my key to the room. The room will open the door to whoever holds that key, it doesn't tell us who holds that key, and did we really give them that specific key? It also doesn't give any limits to how many times or long the buttler is in that room. For example he could let in a load of his friends to have a party while you are out. 
+Let's say for example your butler was a little bit rouge, and he decided hey I am going to contract out a load of butlers who will do my job for me and then give them my key to the room. The room will open the door to whoever holds that key, it doesn’t tell us who holds that key, and did we give them that specific key? It also doesn’t give any limits to how many times or long the butler is in that room. For example, he could let in a load of his friends to have a party while you are out.
 
 **Securing the room further**
 
-So how do we make this better? It comes down to a degree of trust, the hotel desk is going to install a secondry lock on the door which they can control from the front desk along with a cctv camera. Most of the time this secondry lock will be open (trust) but in cetain circumstances they will make the secondry lock shut. When the buttler wants to go in when this secondry lock is activated the hotel desk will phone you up, get you to confirm that the cctv footage is showing someone you authorized and if you are happy then the desk will open the door on your behalf. This process is 2FA. For cases where the data is more sensitive or the action is more pertinent then 2FA should be required.
+So how do we make this better? It comes down to a degree of trust, the hotel desk is going to install a secondary lock on the door which they can control from the front desk along with a CCTV camera. Most of the time this secondary lock will be open (trust) but in certain circumstances, they will make the secondary lock shut. When the butler wants to go in when this secondary lock is activated the hotel desk will phone you up, get you to confirm that the CCTV footage is showing someone you authorized and if you are happy then the desk will open the door on your behalf. This process is 2FA. For cases where the data is more sensitive or the action is more pertinent then 2FA should be required.
 
-Oauth2.0 is also just a protocol it does not even specify that you have to use keys. They could be biometric scanners, passcodes one time emails etc. It is a way of you giving access to certain parts of your room on your behalf. This is the authentication part, enuring that you are the person who can allow the buttler to have key. 
+Oauth2.0 is also just a protocol it does not even specify that you have to use keys. They could be biometric scanners, passcodes one-time emails etc. It is a way of you giving access to certain parts of your room on your behalf. This is the authentication part, ensuring that you are the person who can allow the butler to have the key.
